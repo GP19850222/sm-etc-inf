@@ -22,13 +22,6 @@ CUSTOM_FLOOR_SORT_ORDER = ["27", "26", "25", "24", "23", "22", "21", "20", "19",
                            "17", "16", "15", "14", "12", "11", "10", "09", "08", "07",
                            "06", "05", "03", "02", "01", "G"]
 
-# --- Authentication Credentials (Hardcoded for simplicity) ---
-# IMPORTANT: For a real application, use a more secure way to store and manage credentials.
-# Consider environment variables, Streamlit secrets, or a database.
-# CORRECT_USERNAME = "NVK"
-# CORRECT_PASSWORD = "sm2025"
-
-
 def load_and_process_gsheet_data(gsheet_url, required_cols_canonical):
     """
     Loads data from the specified Google Sheet URL and processes it.
@@ -131,9 +124,9 @@ def run_dashboard_content():
 
         m_col1r1, m_col2r1, m_col3r1, m_col4r1 = st.columns(4)
         m_col1r1.metric(label="Giá thuê Cao Nhất (USD)", value=f"${h_rental_price:,.2f}")
-        m_col2r1.metric(label="Giá thuê TB theo Diện Tích (USD)", value=f"${avg_w_rental:,.2f}")
+        m_col2r1.metric(label="Giá thuê TB theo Diện Tích (USD)",help = "(Giá thuê x diện tích) / tổng diện tích", value=f"${avg_w_rental:,.2f}")
         m_col3r1.metric(label="Giá thuê Thấp Nhất (USD)", value=f"${l_rental_price:,.2f}")
-        m_col4r1.metric(label="Tỷ Giá Bình Quân (VND/USD)", value=f"{avg_fx_rate:,.0f}")
+        m_col4r1.metric(label="Tỷ Giá Bình Quân (VND/USD)",help = "Tỷ giá mua VCB tại ngày báo cáo", value=f"{avg_fx_rate:,.0f}")
 
         m_col1r2, m_col2r2, m_col3r2, m_col4r2 = st.columns(4)
         m_col1r2.metric(label="Phí DV Cao Nhất (USD)", value=f"${h_service_price:,.2f}")
