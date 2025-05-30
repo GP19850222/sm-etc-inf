@@ -1,2 +1,5 @@
 streamlit
 pandas
+altair
+streamlit-aggrid
+st-gsheets-connection
