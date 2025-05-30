@@ -9,7 +9,8 @@ from detail_price import display_ag_grid_table
 
 # --- Page configuration ---
 st.set_page_config(layout="wide", page_title="ETC Price Dashboard", initial_sidebar_state="expanded")
-
+CORRECT_USERNAME = st.secrets["user_name"]
+CORRECT_PASSWORD = st.secrets["pass"]
 # --- Define global constants ---
 GSHEET_URL = "https://docs.google.com/spreadsheets/d/10vUin48x2mqHZ3TdiuOkXWVOVWy1lq5j0M9gexO7zzM/edit?usp=sharing"
 
@@ -24,8 +25,8 @@ CUSTOM_FLOOR_SORT_ORDER = ["27", "26", "25", "24", "23", "22", "21", "20", "19",
 # --- Authentication Credentials (Hardcoded for simplicity) ---
 # IMPORTANT: For a real application, use a more secure way to store and manage credentials.
 # Consider environment variables, Streamlit secrets, or a database.
-CORRECT_USERNAME = "NVK"
-CORRECT_PASSWORD = "sm2025"
+# CORRECT_USERNAME = "NVK"
+# CORRECT_PASSWORD = "sm2025"
 
 
 def load_and_process_gsheet_data(gsheet_url, required_cols_canonical):
