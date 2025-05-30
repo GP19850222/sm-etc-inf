@@ -1,11 +1,12 @@
+import utils
 import streamlit as st
 import pandas as pd
 from streamlit.components.v1 import html # For JS/CSS integration
 from streamlit_gsheets import GSheetsConnection # For Google Sheets
 
 # Import functions from other modules
-from utils.price_chart import calculate_metrics_values, create_advanced_price_chart
-from utils.detail_price import display_ag_grid_table
+from .price_chart import calculate_metrics_values, create_advanced_price_chart
+from .detail_price import display_ag_grid_table
 
 # --- Page configuration ---
 st.set_page_config(layout="wide", page_title="ETC Price Dashboard", initial_sidebar_state="expanded")
