@@ -12,7 +12,7 @@ st.set_page_config(layout="wide", page_title="ETC Price Dashboard", initial_side
 CORRECT_USERNAME = st.secrets["user_name"]
 CORRECT_PASSWORD = st.secrets["pass"]
 # --- Define global constants ---
-GSHEET_URL = "https://docs.google.com/spreadsheets/d/10vUin48x2mqHZ3TdiuOkXWVOVWy1lq5j0M9gexO7zzM/edit?usp=sharing"
+GSHEET_URL = st.secrets["URL"]
 
 REQUIRED_COLUMNS = [
     'customer_name', 'floor', 'period', 'sqr','foreign_ex',
