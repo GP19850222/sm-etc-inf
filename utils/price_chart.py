@@ -26,12 +26,14 @@ def calculate_metrics_values(df_input):
     avg_rental = 0
     if 'sqr' in df_input.columns and 'rental_USD' in df_input.columns:
         temp_df_for_avg = df_input.dropna(subset=['sqr', 'rental_USD'])
+        temp_df_for_avg = temp_df_for_avg[temp_df_for_avg['rental_USD'] > 0] 
         if not temp_df_for_avg.empty and temp_df_for_avg['sqr'].sum() != 0:
             avg_rental = (temp_df_for_avg['sqr'] * temp_df_for_avg['rental_USD']).sum() / temp_df_for_avg['sqr'].sum()
 
     avg_service = 0
     if 'sqr' in df_input.columns and 'service_USD' in df_input.columns:
         temp_df_for_avg = df_input.dropna(subset=['sqr', 'service_USD'])
+        temp_df_for_avg = temp_df_for_avg[temp_df_for_avg['service_USD'] > 0]
         if not temp_df_for_avg.empty and temp_df_for_avg['sqr'].sum() != 0:
             avg_service = (temp_df_for_avg['sqr'] * temp_df_for_avg['service_USD']).sum() / temp_df_for_avg['sqr'].sum()
             
