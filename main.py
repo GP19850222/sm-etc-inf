@@ -15,6 +15,7 @@ CORRECT_USERNAME = st.secrets["user_name"]
 CORRECT_PASSWORD = st.secrets["pass"]
 # --- Define global constants ---
 GSHEET_URL = st.secrets["URL"]
+fx_link = "https://portal.vietcombank.com.vn/Usercontrols/TVPortal.TyGia/pXML.aspx"
 def fx_getter(fx_url):
     """
     Truy cập API tỷ giá của Vietcombank, lấy tỷ giá bán USD và thời gian cập nhật.
