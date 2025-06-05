@@ -11,6 +11,7 @@ from utils.detail_price import display_ag_grid_table
 
 # --- Page configuration ---
 st.set_page_config(layout="wide", page_title="ETC Price Dashboard", initial_sidebar_state="expanded")
+st.cache_data(ttl=3600) 
 CORRECT_USERNAME = st.secrets["user_name"]
 CORRECT_PASSWORD = st.secrets["pass"]
 # --- Define global constants ---
