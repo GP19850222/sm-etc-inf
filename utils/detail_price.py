@@ -36,11 +36,15 @@ def display_ag_grid_table(df_filtered_for_table, custom_floor_sort_order, st_obj
                            'customer_name', 
                            'period', 
                            'sqr', 
-                           'rental_USD', 
-                           'service_USD', 
-                           'total_USD', 
-                           'rental_VND', 
-                           'service_VND'
+                           'rental_usd', 
+                           'service_usd', 
+                           'total_usd', 
+                           'rental_vnd', 
+                           'service_vnd',
+                           'org_fx',
+                           'org_rental_usd',
+                           'org_service_usd',
+                           'org_total_usd'
                            ]
         # Ensure only existing columns are selected to avoid KeyError
         display_cols_aggrid = [col for col in cols_for_aggrid if col in df_filtered_for_table.columns]
@@ -56,11 +60,15 @@ def display_ag_grid_table(df_filtered_for_table, custom_floor_sort_order, st_obj
             'floor': 'Tầng',
             'sqr': 'Diện Tích (m²)', 
             'period': 'Kỳ Hạn', 
-            'rental_USD': 'Giá Thuê (USD)',
-            'service_USD': 'Phí Dịch Vụ (USD)',
-            'total_USD': 'Tổng (USD)',
-            'rental_VND': 'Giá Thuê (VND)',
-            'service_VND': 'Phí Dịch Vụ (VND)'
+            'rental_usd': 'Giá Thuê (USD)',
+            'service_usd': 'Phí Dịch Vụ (USD)',
+            'total_usd': 'Tổng (USD)',
+            'rental_vnd': 'Giá Thuê (VND)',
+            'service_vnd': 'Phí Dịch Vụ (VND)',
+            'org_fx': 'Tỷ giá ký HĐ',
+            'org_rental_usd': 'Giá Thuê (USD) Ký HĐ',
+            'org_service_usd': 'Phí Dịch Vụ (USD) Ký HĐ',
+            'org_total_usd': 'Tổng (USD) Ký HĐ'
         }
         aggrid_display_df.columns = [rename_map_aggrid.get(col, col) for col in aggrid_display_df.columns]
 
@@ -147,4 +155,3 @@ def display_ag_grid_table(df_filtered_for_table, custom_floor_sort_order, st_obj
         )
     else:
         st_object.info("Không có dữ liệu chi tiết để hiển thị dựa trên bộ lọc hiện tại hoặc chưa có file nào được tải lên.")
-
