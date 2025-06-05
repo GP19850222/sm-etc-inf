@@ -4,3 +4,4 @@ altair
 streamlit-aggrid
 st-gsheets-connection
 datetime
+requests
