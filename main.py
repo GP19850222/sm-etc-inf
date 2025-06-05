@@ -15,6 +15,9 @@ CORRECT_USERNAME = st.secrets["user_name"]
 CORRECT_PASSWORD = st.secrets["pass"]
 # --- Define global constants ---
 GSHEET_URL = st.secrets["URL"]
+CUSTOM_FLOOR_SORT_ORDER = ["27", "26", "25", "24", "23", "22", "21", "20", "19", "18",
+                           "17", "16", "15", "14", "12", "11", "10", "09", "08", "07",
+                           "06", "05", "03", "02", "01", "G"]
 fx_link = "https://portal.vietcombank.com.vn/Usercontrols/TVPortal.TyGia/pXML.aspx"
 def fx_getter(fx_url):
     """
