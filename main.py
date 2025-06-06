@@ -22,7 +22,7 @@ CUSTOM_FLOOR_SORT_ORDER = ["27", "26", "25", "24", "23", "22", "21", "20", "19",
 fx_link = "https://portal.vietcombank.com.vn/Usercontrols/TVPortal.TyGia/pXML.aspx"
 def fx_getter(fx_url):
     """
-    Truy cập API tỷ giá của Vietcombank, lấy tỷ giá bán USD và thời gian cập nhật.
+    Truy cập API tỷ giá của Vietcombank, lấy tỷ giá ck USD và thời gian cập nhật.
 
     Returns:
         tuple: Một tuple chứa (fx_rate, fx_time) nếu thành công,
@@ -52,7 +52,7 @@ def fx_getter(fx_url):
         # Tìm thẻ Exrate có CurrencyCode là "USD"
         for exrate_element in root.findall('Exrate'):
             if exrate_element.get('CurrencyCode') == 'USD':
-                fx_rate_str = exrate_element.get('Sell')
+                fx_rate_str = exrate_element.get('Transfer')
                 if fx_rate_str:
                     # Chuyển đổi tỷ giá sang số float, loại bỏ dấu phẩy nếu có
                     fx_rate = float(fx_rate_str.replace(',', ''))
