@@ -141,13 +141,13 @@ def run_dashboard_content():
     m_col1r2, m_col2r2, m_col3r2, m_col4r2 = st.columns(4)
     
     # *** THAY ĐỔI: Hiển thị tỷ giá tham chiếu từ API trong m_col4r1 ***
-    m_col4r1.metric(label="Tỷ Giá USD (VND/USD)", help=f"Tỷ giá được cập nhật lúc: {update_time}", value=f"{api_fx_rate:,.0f}")
+    m_col4r1.metric(label="Tỷ Giá mua chuyển khoản USD (VND/USD)", help=f"Tỷ giá được cập nhật lúc: {update_time}", value=f"{api_fx_rate:,.0f}")
 
     # Widget cho người dùng nhập tỷ giá để tính toán
     with m_col4r2:
         user_fx_rate = st.number_input(
             "Nhập tỷ giá để tính toán lại",
-            help="Nhập tỷ giá mới và nhấn Enter, dashboard sẽ tự động cập nhật.",
+            help="Nhập tỷ giá mới và nhấn Enter, đơn giá USD sẽ tự động cập nhật.",
             min_value=20000.0,
             max_value=50000.0,
             step=10.0,
