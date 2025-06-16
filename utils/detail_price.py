@@ -139,7 +139,7 @@ def display_ag_grid_table(df_filtered_for_table, custom_floor_sort_order, st_obj
         gb.configure_grid_options(
             groupDefaultExpanded=-1, # Expand all groups by default
             autoGroupColumnDef=autoGroupColDef_dict,
-            domLayout='autoHeight' # Adjusts grid height to content, use with caution for large datasets
+            # domLayout='autoHeight' # Adjusts grid height to content, use with caution for large datasets
         )
         
         gridOptions = gb.build()
