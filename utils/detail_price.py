@@ -103,7 +103,7 @@ def display_ag_grid_table(df_filtered_for_table, custom_floor_sort_order, st_obj
             filterable=True, 
             sortable=True, 
             floatingFilter=True, # Enable floating filters for all columns
-            Width=100 # Default min width
+            minWidth=120 # Default min width
         )
 
         # Specific column configurations
@@ -148,7 +148,7 @@ def display_ag_grid_table(df_filtered_for_table, custom_floor_sort_order, st_obj
             aggrid_display_df,
             gridOptions=gridOptions,
             height=700, # Fixed height for the grid
-            fit_columns_on_grid_load=True, # Can cause issues if minWidths are also set. Let user resize.
+            # fit_columns_on_grid_load=True, # Can cause issues if minWidths are also set. Let user resize.
             allow_unsafe_jscode=True, 
             enable_enterprise_modules=True, # Assuming enterprise version is available for row grouping features
             key='price_detail_grid', # Unique key for the AgGrid instance
