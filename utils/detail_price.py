@@ -98,12 +98,12 @@ def display_ag_grid_table(df_filtered_for_table, custom_floor_sort_order, st_obj
         gb.configure_default_column(
             resizable=True, 
             groupable=True, # Allow grouping by any column
-            # filter='agTextColumnFilter', # Default filter type
-            # filterParams={"buttons": ['clear']}, # Default filter buttons
+            filter='agTextColumnFilter', # Default filter type
+            filterParams={"buttons": ['clear']}, # Default filter buttons
             filterable=True, 
             sortable=True, 
             floatingFilter=True, # Enable floating filters for all columns
-            minWidth=120 # Default min width
+            Width=100 # Default min width
         )
 
         # Specific column configurations
@@ -111,16 +111,17 @@ def display_ag_grid_table(df_filtered_for_table, custom_floor_sort_order, st_obj
                             sort='asc', # Initial sort direction
                             rowGroup=True, # Enable row grouping by 'Tầng' by default
                             comparator=JsCode(custom_floor_sort_js),
-                            width=100 # Specific width for Tầng
+                            minWidth=120# Specific width for Tầng
                            )
         gb.configure_column(field='Tên Khách Hàng', width=200,hide = True)
         gb.configure_column(field='Diện Tích (m²)', type=["numericColumn", "numberColumnFilter"], aggFunc='sum', width=150,valueFormatter= number_formatter)
         gb.configure_column(field='Giá Thuê (USD)', type=["numericColumn", "numberColumnFilter"],width=150,valueFormatter= decimal_formatter)
         gb.configure_column(field='Phí Dịch Vụ (USD)', type=["numericColumn", "numberColumnFilter"],width=180,valueFormatter= decimal_formatter)
         gb.configure_column(field='Tổng (USD)', type=["numericColumn", "numberColumnFilter"], width=150,valueFormatter= decimal_formatter)
-        gb.configure_column(field='Kỳ Hạn', width=100)
+        gb.configure_column(field='Kỳ Hạn', width=200)
         gb.configure_column(field='Giá Thuê (VND)', type=["numericColumn", "numberColumnFilter"], width=150,valueFormatter= number_formatter)
         gb.configure_column(field='Phí Dịch Vụ (VND)', type=["numericColumn", "numberColumnFilter"], width=180,valueFormatter= number_formatter)
+        gb.configure_column(field='Tỷ giá ký HĐ', type=["numericColumn", "numberColumnFilter"], width=180,valueFormatter= number_formatter)
         
 
         # Configure how grouped rows are displayed
@@ -138,7 +139,7 @@ def display_ag_grid_table(df_filtered_for_table, custom_floor_sort_order, st_obj
         gb.configure_grid_options(
             groupDefaultExpanded=-1, # Expand all groups by default
             autoGroupColumnDef=autoGroupColDef_dict,
-            # domLayout='autoHeight' # Adjusts grid height to content, use with caution for large datasets
+            domLayout='autoHeight' # Adjusts grid height to content, use with caution for large datasets
         )
         
         gridOptions = gb.build()
@@ -147,7 +148,7 @@ def display_ag_grid_table(df_filtered_for_table, custom_floor_sort_order, st_obj
             aggrid_display_df,
             gridOptions=gridOptions,
             height=700, # Fixed height for the grid
-            # fit_columns_on_grid_load=True, # Can cause issues if minWidths are also set. Let user resize.
+            fit_columns_on_grid_load=True, # Can cause issues if minWidths are also set. Let user resize.
             allow_unsafe_jscode=True, 
             enable_enterprise_modules=True, # Assuming enterprise version is available for row grouping features
             key='price_detail_grid', # Unique key for the AgGrid instance
