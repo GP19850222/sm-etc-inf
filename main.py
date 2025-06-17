@@ -44,7 +44,7 @@ def fx_getter(fx_url):
         # Lấy tỷ giá USD
         for exrate in root.findall('Exrate'):
             if exrate.get('CurrencyCode') == 'USD':
-                fx_rate_str = exrate.get('Transfer')
+                fx_rate_str = exrate.get('Sell')
                 fx_rate = float(fx_rate_str.replace(',', ''))
                 return fx_rate, fx_time
         
@@ -141,7 +141,7 @@ def run_dashboard_content():
     m_col1r2, m_col2r2, m_col3r2, m_col4r2 = st.columns(4)
     
     # *** THAY ĐỔI: Hiển thị tỷ giá tham chiếu từ API trong m_col4r1 ***
-    m_col4r1.metric(label="Tỷ Giá mua chuyển khoản USD (VND/USD)", help=f"Tỷ giá được cập nhật lúc: {update_time}", value=f"{api_fx_rate:,.0f}")
+    m_col4r1.metric(label="Tỷ Giá bán USD (VND/USD)", help=f"Tỷ giá được cập nhật lúc: {update_time}", value=f"{api_fx_rate:,.0f}")
 
     # Widget cho người dùng nhập tỷ giá để tính toán
     with m_col4r2:
